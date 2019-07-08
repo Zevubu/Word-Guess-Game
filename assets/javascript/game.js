@@ -13,35 +13,61 @@ let devine = {
 };
 
 let femaleTrouble = {
-    title: "Female Trouble"
-    dateOrAge: "October 4, 1974"
+    title: "Female Trouble",
+    dateOrAge: "October 4, 1974",
 }
 
 let edith = {
-    title:"Edith Massey"
-    dateOrAge:"Born: May 28, 1918. Died: October 24, 1984"
+    title:"Edith Massey",
+    dateOrAge:"Born: May 28, 1918. Died: October 24, 1984",
 }
 // alert(devine.title)
 
-let currentWord = [
-    devine.title,
-    femaleTrouble.title,
-    edith.title,
+let currentObject = [
+    devine,
+    femaleTrouble,
+    edith,
 ];
 
-chosenWord = currentWord [Math.floor(Math.random() * currentWord. length)];
-word = chosenWord[Math.floor(math.random() * chosenWord.length)];
-word = word.replace("-");
+chosenObject = currentObject [Math.floor(Math.random() * currentObject. length)];
+// word = chosenWord[Math.floor(math.random() * chosenWord.length)];
+// word = word.replace("-");
+// console.log(chosenObject);
 
-currentWordIndex = 0;
 
-// if 
+currentWord = chosenObject.title;
 
-const currentWordlist = () =>{
-    if(currentWordIndex <= currentWord.length -1){
-        document.querySelector("#currentWord"). innerHTML = word[currentWordIndex];
-    }
-}
+y = currentWord.length;
+
+// console.log(currentWord);
+// console.log(y);
+
+
+const log = document.getElementById("currentWord");
+let keycapture = document.addEventListener('keypress', logKey);
+logKey = document.onkeypress;
+
+// //  this part is about turn word into equal number of blank spaces. posibly turning them back.
+// for( let i= 0; i <= currentWord.length; 1++){
+
+//     if ()
+    
+// }
+// }
+
+// const wordAcknowledged = () => {
+
+// }
+
+// currentWordIndex = 0;
+
+// // if 
+
+// const currentWordlist = () =>{
+//     if(currentWordIndex <= currentWord.length -1){
+//         document.querySelector("#currentWord"). innerHTML = word[currentWordIndex];
+//     }
+// }
 
 // console.log(currentWordList);
 
