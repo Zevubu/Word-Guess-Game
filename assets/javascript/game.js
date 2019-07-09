@@ -1,5 +1,6 @@
 
-
+let alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+console.log(alphabet.indexOf)
 // Objects to pull from
 let devine = {
     title: "Devine",
@@ -14,10 +15,22 @@ let devine = {
 let femaleTrouble = {
     title: "Female Trouble",
     dateOrAge: "October 4, 1974",
+    hint: "The Filthiest person who ever lived!",
+    quotes: [
+        "filler", "filler", "full",
+    ],
+    objectImage: "filler",
+    sound: "filler",
 };
 let edith = {
     title:"Edith Massey",
     dateOrAge:"Born: May 28, 1918. Died: October 24, 1984",
+    hint: "The Filthiest person who ever lived!",
+    quotes: [
+        "filler", "filler", "full",
+    ],
+    objectImage: "filler",
+    sound: "filler",
 };
 // alert(devine.title)
 
@@ -52,16 +65,22 @@ function initialize(){
     lettersGuessed = [];
     correctGuesses = 0;
     chosenObject = currentObject [Math.floor(Math.random() * currentObject. length)];
+    console.log(chosenObject);
     currentWord = chosenObject.title;       // choose title from chosen object = current word.
+    console.log(currentWord);
     guessesLeft = 12;
     wordAsDashes = makeIntoDashes(currentWord);
     currentWordArr = currentWord.split('');
+    console.log(currentWordArr);
     dashesArray = wordAsDashes.split('');
     wordElement.innerHTML = wordAsDashes;
     letterGuessedElement.innerHTML = "--";
     guessLeftElement.innerHTML = guessesLeft;
 
 }
+
+
+
 
 function makeIntoDashes(word) {
     let dashes = "";
@@ -77,21 +96,51 @@ function makeIntoDashes(word) {
 function playGame (letter) {
     let letter = letter.toLowerCase();
 
-    if(KeyboardEvent === currentWord[]){
+    if(alphabet.indexOf(letter) > -1){
+        if (currentWordArr.indexOf(letter) > -1){
+            correctGuesses++;
+            displayLetter(letter);
+        };
+        else{
+            if(lettersGuessed.indexOf(letter) < -1)
 
-    }
+        };
+         
+    };
 
 
 
 
-}
+};
 
 // display letter if in word.
 
+function displayLetter(letter) {
+
+};
+
 
 // checks for win. 
+    function checkForWin() {
+        if (dashesArray.indexOf("_") === -1){
 
-// restarts game with new word.
+        };
+    };
+
+// starts/restart game with new word. maintaining score.
+document.onkeyup = function (event) {
+    if(!gameStart) {
+        initialize();
+        gameStart = true;
+
+    };
+    else {
+        playGame(event.key);
+
+    };
+
+};
+
 
 
 

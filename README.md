@@ -1,6 +1,10 @@
 # Word-Guess-Game
 The filthiest game alive! A John Waters themed word guessing game.
 
+I just learned a new thing .split ! it's awesome!
+
+
+
 supposed to build dashes.
 // let dashes = [];
 // for(let i = 0; i < currentWord.length; i++){
