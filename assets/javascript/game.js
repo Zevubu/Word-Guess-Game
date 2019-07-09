@@ -23,31 +23,51 @@ let edith = {
 }
 // alert(devine.title)
 
+let gameStart = document.getElementById("start");
+let winElement = document.getElementById("wins");
+let wordElement = document.getElementById("currentWord");
+let guessNumElement = document.getElementById("numOfGuess");
+let letterGuessedElement = document.getElementById("lettersGuessed");
+
 let currentObject = [
     devine,
     femaleTrouble,
     edith,
 ];
-
 chosenObject = currentObject [Math.floor(Math.random() * currentObject. length)];
-// word = chosenWord[Math.floor(math.random() * chosenWord.length)];
-// word = word.replace("-");
+
 // console.log(chosenObject);
 
 
-currentWord = chosenObject.title;
-
-y = currentWord.length;
-
-// console.log(currentWord);
-// console.log(y);
+currentWord.toLowerCase = chosenObject.title;
 
 
-const log = document.getElementById("currentWord");
-let keycapture = document.addEventListener('keypress', logKey);
-logKey = document.onkeypress;
+console.log(currentWord);
 
-// //  this part is about turn word into equal number of blank spaces. posibly turning them back.
+document.onkeyup = function(event) {
+    let letter = event.key.toLowerCase();
+
+    for (let i= 0; i < currentWord.length; i++){
+        if (letter === currentWord.toLowerCase[i]){
+
+            console.log (letter);
+        }
+        else{
+            console.log (`not ${letter}`)
+        }
+     
+    }
+
+    
+
+
+}
+
+// const log = document.getElementById("currentWord");
+// let keycapture = document.addEventListener('keypress', logKey);
+// logKey = document.onkeypress;
+
+// //  this part is about turn word into equal number of - . and posibly turning them back when coinsiding letter is typed.
 // for( let i= 0; i <= currentWord.length; 1++){
 
 //     if ()
