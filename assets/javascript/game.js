@@ -1,6 +1,4 @@
-let wins = 0;
-let numOfGeuss = 12; 
-
+// Objects to pull from
 let devine = {
     title: "Devine",
     dateOrAge: "Born: October 19, 1945. Died: March 7, 1988",
@@ -11,49 +9,93 @@ let devine = {
     objectImage: "filler",
     sound: "filler",
 };
-
 let femaleTrouble = {
     title: "Female Trouble",
     dateOrAge: "October 4, 1974",
-}
-
+};
 let edith = {
     title:"Edith Massey",
     dateOrAge:"Born: May 28, 1918. Died: October 24, 1984",
-}
+};
 // alert(devine.title)
 
-let gameStart = document.getElementById("start");
+// list of objects
+let currentObject = [devine, femaleTrouble, edith,];
+
+// connect to corasponding div
+let StartElement = document.getElementById("start");
 let winElement = document.getElementById("wins");
-let wordElement = document.getElementById("currentWord");
-let guessNumElement = document.getElementById("numOfGuess");
-let letterGuessedElement = document.getElementById("lettersGuessed");
+let wordElement = document.getElementById("current-word");
+let guessNumElement = document.getElementById("num-of-guess");
+let letterGuessedElement = document.getElementById("letters-guessed");
 
-let currentObject = [
-    devine,
-    femaleTrouble,
-    edith,
-];
-chosenObject = currentObject [Math.floor(Math.random() * currentObject. length)];
+let gameStart = false;
+let chosenObject;
+let currentWord;
+let currentWordArr = [];
+let wordAsDashes;
+let dashesArray =[];
+let guessesLeft;
+let lettersGuessed;
+let numWins = 0;
+let numLosses =0;
+let numOfGeuss = 12;
+let guessCount = 0; 
+let correctGuesses;
+let lettersGuessed = [];
 
-// console.log(chosenObject);
+// choose random object
+function initialize(){
+    gameStart = true;
+    lettersGuessed = [];
+    correctGuesses = 0;
+    chosenObject = currentObject [Math.floor(Math.random() * currentObject. length)];
+    currentWord = chosenObject.title;       // choose title from chosen object = current word.
+} 
 
 
-currentWord = chosenObject.title;
 
 
-console.log(currentWord);
 
 
-let dashes = [];
+
+
+function clearWordAndGuesses() {
+	numOfGeuss. = 12;
+	guessCount = 0;
+	lettersGuessed = [];
+};
+// main function what do do with each key stroke.
+function playGame (letter) {
+    let letter = letter.toLowerCase();
+
+
+}
+
+// display letter if in word.
+
+
+// checks for win. 
+
+// restarts game with new word.
+
+
+
+
+
+
+let dashes = "";
 for(let i = 0; i < currentWord.length; i++){
     dashes.push("_");
     let newDash = document.createElement("p");
-    newDash.textContent = dashes[i];
-    wordElement.append(newDash);
+    newDash.textContent = (dashes[i]);
+    wordElement.appendChild(newDash);
 };
- 
 
+
+
+
+ 
 
 
 
