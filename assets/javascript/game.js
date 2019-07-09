@@ -39,29 +39,42 @@ chosenObject = currentObject [Math.floor(Math.random() * currentObject. length)]
 // console.log(chosenObject);
 
 
-currentWord.toLowerCase = chosenObject.title;
+currentWord = chosenObject.title;
 
 
 console.log(currentWord);
 
-document.onkeyup = function(event) {
-    let letter = event.key.toLowerCase();
 
-    for (let i= 0; i < currentWord.length; i++){
-        if (letter === currentWord.toLowerCase[i]){
+let dashes = [];
+for(let i = 0; i < currentWord.length; i++){
+    dashes.push("_");
+    let newDash = document.createElement("p");
+    newDash.textContent = dashes[i];
+    wordElement.append(newDash);
+};
+ 
 
-            console.log (letter);
-        }
-        else{
-            console.log (`not ${letter}`)
-        }
+
+
+
+// document.onkeyup = function(event) {
+//     let letter = event.key.toLowerCase();
+
+//     for (let i= 0; i < currentWord.length; i++){
+//         if (letter === currentWord.toLowerCase[i]){
+
+//             console.log (letter);
+//         }
+//         else{
+//             console.log (`not ${letter}`)
+//         }
      
-    }
+//     }
 
     
 
 
-}
+// }
 
 // const log = document.getElementById("currentWord");
 // let keycapture = document.addEventListener('keypress', logKey);
