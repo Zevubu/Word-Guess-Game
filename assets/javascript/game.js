@@ -1,3 +1,5 @@
+
+
 // Objects to pull from
 let devine = {
     title: "Devine",
@@ -27,6 +29,7 @@ let StartElement = document.getElementById("start");
 let winElement = document.getElementById("wins");
 let wordElement = document.getElementById("current-word");
 let guessNumElement = document.getElementById("num-of-guess");
+let guessLeftElement = document.getElementById("guesses-left");
 let letterGuessedElement = document.getElementById("letters-guessed");
 
 let gameStart = false;
@@ -42,7 +45,6 @@ let numLosses =0;
 let numOfGeuss = 12;
 let guessCount = 0; 
 let correctGuesses;
-let lettersGuessed = [];
 
 // choose random object
 function initialize(){
@@ -51,23 +53,35 @@ function initialize(){
     correctGuesses = 0;
     chosenObject = currentObject [Math.floor(Math.random() * currentObject. length)];
     currentWord = chosenObject.title;       // choose title from chosen object = current word.
-} 
+    guessesLeft = 12;
+    wordAsDashes = makeIntoDashes(currentWord);
+    currentWordArr = currentWord.split('');
+    dashesArray = wordAsDashes.split('');
+    wordElement.innerHTML = wordAsDashes;
+    letterGuessedElement.innerHTML = "--";
+    guessLeftElement.innerHTML = guessesLeft;
+
+}
+
+function makeIntoDashes(word) {
+    let dashes = "";
+    for(i = 0; i < word.length -1; i++){
+        dashes +=("_ ");
+    };
+    dashes +="";
+    return dashes;
+}
 
 
-
-
-
-
-
-
-function clearWordAndGuesses() {
-	numOfGeuss. = 12;
-	guessCount = 0;
-	lettersGuessed = [];
-};
 // main function what do do with each key stroke.
 function playGame (letter) {
     let letter = letter.toLowerCase();
+
+    if(KeyboardEvent === currentWord[]){
+
+    }
+
+
 
 
 }
@@ -84,13 +98,6 @@ function playGame (letter) {
 
 
 
-let dashes = "";
-for(let i = 0; i < currentWord.length; i++){
-    dashes.push("_");
-    let newDash = document.createElement("p");
-    newDash.textContent = (dashes[i]);
-    wordElement.appendChild(newDash);
-};
 
 
 
