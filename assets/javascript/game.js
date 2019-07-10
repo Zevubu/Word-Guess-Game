@@ -44,7 +44,8 @@ let wordElement = document.getElementById("current-word");
 let guessNumElement = document.getElementById("num-of-guess");
 let guessLeftElement = document.getElementById("guesses-left");
 let letterGuessedElement = document.getElementById("letters-guessed");
-    
+let FailureElement = document.getElementById("failures");
+
 let gameStart = false;
 let chosenObject;
 let currentWord;
@@ -57,6 +58,7 @@ let numWins = 0;
 let numLosses =0;
 let guessCount = 0; 
 let correctGuesses;
+FailureElement.textContent = numLosses;
 
 // choose random object
 // function initialize(){
@@ -66,11 +68,13 @@ let correctGuesses;
     chosenObject = currentObject [Math.floor(Math.random() * currentObject. length)];
     // console.log(chosenObject);
     currentWord = chosenObject.title;       // choose title from chosen object = current word.
-    // console.log(currentWord);
+    console.log(currentWord);
+    lowerWord = currentWord.toLowerCase();
+    console.log(lowerWord);
     wordAsDashes = makeIntoDashes(currentWord);
-    // console.log(wordAsDashes);
-    currentWordArr = currentWord.split('');
-    // console.log(currentWordArr);
+    console.log(wordAsDashes);
+    currentWordArr = lowerWord.split('');
+    console.log(currentWordArr);
     guessesLeft = 12;
     dashesArray = wordAsDashes.split('');
     wordElement.textContent = wordAsDashes;
@@ -114,7 +118,15 @@ function playGame (letter) {
                 guessesLeft--;
                 guessLeftElement.textContent = guessesLeft;
                 lettersGuessed.push(letter);
-                letterGuessedElement.textContent =lettersGuessed;
+                letterGuessedElement.textContent = lettersGuessed;
+                if(guessesLeft === 0){
+                    alert("Failure is an art form and you're well on you way to mastering it.");
+                    alert (`The answer you where lookin for was ${currentWord} .`)
+                    numLosses++;
+                    FailureElement.textContent = numLosses;
+                    initialize();
+                    
+                }
             };
 
         };
