@@ -49,6 +49,8 @@ let FailureElement = document.getElementById("failures");
 let gameStart = false;
 let chosenObject;
 let currentWord;
+let wordArray = [];
+let lowerWord;
 let currentWordArr = [];
 let wordAsDashes;
 let dashesArray =[];
@@ -61,27 +63,29 @@ let correctGuesses;
 FailureElement.textContent = numLosses;
 
 // choose random object
-// function initialize(){
+function initialize(){
     gameStart = true;
     lettersGuessed = [];
     correctGuesses = 0;
     chosenObject = currentObject [Math.floor(Math.random() * currentObject. length)];
     // console.log(chosenObject);
     currentWord = chosenObject.title;       // choose title from chosen object = current word.
-    console.log(currentWord);
+    // console.log(currentWord);
+    wordArray = currentWord.split('');
+    // console.log(wordArray);
     lowerWord = currentWord.toLowerCase();
-    console.log(lowerWord);
+    // console.log(lowerWord);
     wordAsDashes = makeIntoDashes(currentWord);
-    console.log(wordAsDashes);
+    // console.log(wordAsDashes);
     currentWordArr = lowerWord.split('');
-    console.log(currentWordArr);
+    // console.log(currentWordArr);
     guessesLeft = 12;
     dashesArray = wordAsDashes.split('');
     wordElement.textContent = wordAsDashes;
     letterGuessedElement.textContent = "--";
     guessLeftElement.textContent = guessesLeft;
 
-// }
+}
 
 
 function makeIntoDashes(word) {
@@ -125,7 +129,6 @@ function playGame (letter) {
                     numLosses++;
                     FailureElement.textContent = numLosses;
                     initialize();
-                    
                 }
             };
 
@@ -141,6 +144,15 @@ function playGame (letter) {
 // display letter if in word.
 
 function displayLetter(letter) {
+    for (i = 0; i < currentWord.length; i++){
+        if(letter === currentWordArr[i]){
+            dashesArray[i * 2] = wordArray[i];
+            console.log(dashesArray);
+            
+        }
+    }
+    wordElement.textContent = dashesArray.join("");
+
 
 };
 
