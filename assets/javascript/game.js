@@ -12,11 +12,60 @@ let devine = {
     objectImage: "filler",
     sound: "filler",
 };
-
+let polyester = {
+    title: "Polyester",
+    dateOrAge: "1981",
+    hint: "The one movie I haven't seen. So I don't have a hint for you.",
+    quotes: [
+        "filler", "filler", "full",
+    ],
+    objectImage: "filler",
+    sound: "filler",
+};
 let pinkFlamingos = {
     title: "Pink Flamingos",
     dateOrAge: "1972",
     hint: "The fithiest movie about the filthiest people!",
+    quotes: [
+        "filler", "filler", "full",
+    ],
+    objectImage: "filler",
+    sound: "filler",
+};
+let mary = {
+    title: "Mary Vivian Pearce",
+    dateOrAge: "Born:November 9, 1947",
+    hint: "From the scandalous getting into all kinds of wondefully filthy things, to the debutant looking for a thrill she has you covered!",
+    quotes: [
+        "filler", "filler", "full",
+    ],
+    objectImage: "filler",
+    sound: "filler",
+};
+let cookie = {
+    title: "Cookie Mueller",
+    dateOrAge: "Born: March 2, 1949. Died: November 10, 1989",
+    hint: "You want a shiv and an 8ball to keep in you weave? She's the one to ask. ",
+    quotes: [
+        "filler", "filler", "full",
+    ],
+    objectImage: "filler",
+    sound: "filler",
+};
+let susan = {
+    title: "Susan Walsh",
+    dateOrAge: "Born: March 30, 1948. Died: February 6, 2009",
+    hint: "Only the most eite filth here! She'll cut ya, rob ya and look good doing it.",
+    quotes: [
+        "filler", "filler", "full",
+    ],
+    objectImage: "filler",
+    sound: "filler",
+};
+let david = {
+    title: "David Lochary",
+    dateOrAge: "Born: August 21, 1944. Died: July 29, 1977",
+    hint: "Personal fashion icon. He truely had the best facial hair! (Didn't help? Don't really care.)",
     quotes: [
         "filler", "filler", "full",
     ],
@@ -68,7 +117,7 @@ let edith = {
 // alert(devine.title)
 
 // list of objects
-let currentObject = [devine, minkStole, desperateLiving, pinkFlamingos, femaleTrouble, edith,];
+let currentObject = [devine, cookie, susan, david, mary, polyester, minkStole, desperateLiving, pinkFlamingos, femaleTrouble, edith,];
 
 // connect to corasponding div
 let StartElement = document.getElementById("start");
@@ -100,7 +149,7 @@ function initialize(){
     lettersGuessed = [];
     correctGuesses = 0;
     chosenObject = currentObject [Math.floor(Math.random() * currentObject. length)];
-    // console.log(chosenObject);
+    console.log(chosenObject);
     currentWord = chosenObject.title;       // choose title from chosen object = current word.
     // console.log(currentWord);
     wordArray = currentWord.split('');
@@ -183,7 +232,7 @@ function displayLetter(letter) {
         }
         else if(letter === currentWordArr[i]){
             dashesArray[i * 2] = wordArray[i];
-            console.log(dashesArray);
+            // console.log(dashesArray);
             
         };
     };
