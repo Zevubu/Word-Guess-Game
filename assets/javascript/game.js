@@ -12,10 +12,43 @@ let devine = {
     objectImage: "filler",
     sound: "filler",
 };
+
+let pinkFlamingos = {
+    title: "Pink Flamingos",
+    dateOrAge: "1972",
+    hint: "The fithiest movie about the filthiest people!",
+    quotes: [
+        "filler", "filler", "full",
+    ],
+    objectImage: "filler",
+    sound: "filler",
+};
+let minkStole = {
+    title: "Mink Stole",
+    dateOrAge: "How dare you! But if you must know, she was born in the late 1940s ",
+    hint: "Quite posibly the most distinguished highbrow filth around.",
+    quotes: [
+        "filler", "filler", "full",
+    ],
+    objectImage: "filler",
+    sound: "filler",
+};
+
+let desperateLiving = {
+    title: "Desperate Living",
+    dateOrAge: "1977",
+    hint: "Mortvilles just so lovely this time of year.(also it's a movie title)",
+    quotes: [
+        "filler", "filler", "full",
+    ],
+    objectImage: "filler",
+    sound: "filler",
+};
+
 let femaleTrouble = {
     title: "Female Trouble",
-    dateOrAge: "October 4, 1974",
-    hint: "The Filthiest person who ever lived!",
+    dateOrAge: "1974",
+    hint: "She's got lots of problems!(also it's a movie title)",
     quotes: [
         "filler", "filler", "full",
     ],
@@ -35,13 +68,12 @@ let edith = {
 // alert(devine.title)
 
 // list of objects
-let currentObject = [devine, femaleTrouble, edith,];
+let currentObject = [devine, minkStole, desperateLiving, pinkFlamingos, femaleTrouble, edith,];
 
 // connect to corasponding div
 let StartElement = document.getElementById("start");
 let winElement = document.getElementById("wins");
 let wordElement = document.getElementById("current-word");
-let guessNumElement = document.getElementById("num-of-guess");
 let guessLeftElement = document.getElementById("guesses-left");
 let letterGuessedElement = document.getElementById("letters-guessed");
 let FailureElement = document.getElementById("failures");
@@ -92,7 +124,7 @@ function makeIntoDashes(word) {
     let dashes = "";
     for(i = 0; i < word.length; i++){
         if (word[i] === " "){
-        dashes += ("\xa0");
+        dashes += ("\xa0\xa0");
         }
         else{
             dashes +=("_ ");
@@ -145,14 +177,18 @@ function playGame (letter) {
 
 function displayLetter(letter) {
     for (i = 0; i < currentWord.length; i++){
-        if(letter === currentWordArr[i]){
+        if(dashesArray[i] === "  "){
+            dashesArray[i] = ("  ");
+
+        }
+        else if(letter === currentWordArr[i]){
             dashesArray[i * 2] = wordArray[i];
             console.log(dashesArray);
             
-        }
-    }
+        };
+    };
     wordElement.textContent = dashesArray.join("");
-
+    checkForWin();
 
 };
 
@@ -160,6 +196,12 @@ function displayLetter(letter) {
 // checks for win. 
     function checkForWin() {
         if (dashesArray.indexOf("_") === -1){
+            numWins++;
+            winElement.textContent = (numWins);
+            alert("You really know your smut! You perve!")
+            alert(`You where right the answer was ${currentWord}`);
+            initialize();
+            
 
         };
     };
