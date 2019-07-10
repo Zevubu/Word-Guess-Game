@@ -1,6 +1,6 @@
 
 let alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-console.log(alphabet.indexOf)
+// console.log(alphabet.indexOf)
 // Objects to pull from
 let devine = {
     title: "Devine",
@@ -44,7 +44,7 @@ let wordElement = document.getElementById("current-word");
 let guessNumElement = document.getElementById("num-of-guess");
 let guessLeftElement = document.getElementById("guesses-left");
 let letterGuessedElement = document.getElementById("letters-guessed");
-
+    
 let gameStart = false;
 let chosenObject;
 let currentWord;
@@ -55,54 +55,67 @@ let guessesLeft;
 let lettersGuessed;
 let numWins = 0;
 let numLosses =0;
-let numOfGeuss = 12;
 let guessCount = 0; 
 let correctGuesses;
 
 // choose random object
-function initialize(){
+// function initialize(){
     gameStart = true;
     lettersGuessed = [];
     correctGuesses = 0;
     chosenObject = currentObject [Math.floor(Math.random() * currentObject. length)];
-    console.log(chosenObject);
+    // console.log(chosenObject);
     currentWord = chosenObject.title;       // choose title from chosen object = current word.
-    console.log(currentWord);
-    guessesLeft = 12;
+    // console.log(currentWord);
     wordAsDashes = makeIntoDashes(currentWord);
+    // console.log(wordAsDashes);
     currentWordArr = currentWord.split('');
-    console.log(currentWordArr);
+    // console.log(currentWordArr);
+    guessesLeft = 12;
     dashesArray = wordAsDashes.split('');
-    wordElement.innerHTML = wordAsDashes;
-    letterGuessedElement.innerHTML = "--";
-    guessLeftElement.innerHTML = guessesLeft;
+    wordElement.textContent = wordAsDashes;
+    letterGuessedElement.textContent = "--";
+    guessLeftElement.textContent = guessesLeft;
 
-}
-
-
+// }
 
 
 function makeIntoDashes(word) {
     let dashes = "";
-    for(i = 0; i < word.length -1; i++){
-        dashes +=("_ ");
+    for(i = 0; i < word.length; i++){
+        if (word[i] === " "){
+        dashes += ("\xa0");
+        }
+        else{
+            dashes +=("_ ");
+        };
     };
     dashes +="";
     return dashes;
 }
 
 
+
 // main function what do do with each key stroke.
 function playGame (letter) {
-    let letter = letter.toLowerCase();
+    letter = letter.toLowerCase();
 
     if(alphabet.indexOf(letter) > -1){
         if (currentWordArr.indexOf(letter) > -1){
             correctGuesses++;
             displayLetter(letter);
-        };
+            // console.log("yes!")
+        }
         else{
-            if(lettersGuessed.indexOf(letter) < -1)
+            if(lettersGuessed.indexOf(letter) > -1){
+                return;
+            }
+            else{
+                guessesLeft--;
+                guessLeftElement.textContent = guessesLeft;
+                lettersGuessed.push(letter);
+                letterGuessedElement.textContent =lettersGuessed;
+            };
 
         };
          
@@ -133,7 +146,7 @@ document.onkeyup = function (event) {
         initialize();
         gameStart = true;
 
-    };
+    }
     else {
         playGame(event.key);
 

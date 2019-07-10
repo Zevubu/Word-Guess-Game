@@ -1,8 +1,13 @@
 # Word-Guess-Game
 The filthiest game alive! A John Waters themed word guessing game.
 
+
+
 I just learned a new thing .split ! it's awesome!
 
+I just figured out how to add a space to my dashes! very proud of this one! 
+
+It's almost working! this is so exciting!
 
 
 supposed to build dashes.
