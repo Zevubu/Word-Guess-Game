@@ -9,7 +9,7 @@ let devine = {
     quotes: [
         "filler", "filler", "full",
     ],
-    objectImage: "filler",
+    objectImage: "assets/images/devine.jpg",
     sound: "filler",
 };
 let polyester = {
@@ -19,7 +19,7 @@ let polyester = {
     quotes: [
         "filler", "filler", "full",
     ],
-    objectImage: "filler",
+    objectImage: "assets/images/polyester.jpg",
     sound: "filler",
 };
 let pinkFlamingos = {
@@ -29,7 +29,7 @@ let pinkFlamingos = {
     quotes: [
         "filler", "filler", "full",
     ],
-    objectImage: "filler",
+    objectImage: "assets/images/pink.jpg",
     sound: "filler",
 };
 let mary = {
@@ -39,7 +39,7 @@ let mary = {
     quotes: [
         "filler", "filler", "full",
     ],
-    objectImage: "filler",
+    objectImage: "assets/images/Mary.jpg",
     sound: "filler",
 };
 let cookie = {
@@ -49,7 +49,7 @@ let cookie = {
     quotes: [
         "filler", "filler", "full",
     ],
-    objectImage: "filler",
+    objectImage: "assets/images/cookie.jpg",
     sound: "filler",
 };
 let susan = {
@@ -59,7 +59,7 @@ let susan = {
     quotes: [
         "filler", "filler", "full",
     ],
-    objectImage: "filler",
+    objectImage:"assets/images/Susan.jpg" ,
     sound: "filler",
 };
 let david = {
@@ -69,7 +69,7 @@ let david = {
     quotes: [
         "filler", "filler", "full",
     ],
-    objectImage: "filler",
+    objectImage: "assets/images/david.jpg",
     sound: "filler",
 };
 let minkStole = {
@@ -79,7 +79,7 @@ let minkStole = {
     quotes: [
         "filler", "filler", "full",
     ],
-    objectImage: "filler",
+    objectImage: "assets/images/mink.gif",
     sound: "filler",
 };
 
@@ -90,7 +90,7 @@ let desperateLiving = {
     quotes: [
         "filler", "filler", "full",
     ],
-    objectImage: "filler",
+    objectImage: "assets/images/desperate.jpg",
     sound: "filler",
 };
 
@@ -101,7 +101,7 @@ let femaleTrouble = {
     quotes: [
         "filler", "filler", "full",
     ],
-    objectImage: "filler",
+    objectImage: "assets/images/femaletrouble.jpg",
     sound: "filler",
 };
 let edith = {
@@ -111,13 +111,14 @@ let edith = {
     quotes: [
         "filler", "filler", "full",
     ],
-    objectImage: "filler",
+    objectImage: "assets/images/edith.jpg",
     sound: "filler",
 };
 // alert(devine.title)
 
 // list of objects
 let currentObject = [devine, cookie, susan, david, mary, polyester, minkStole, desperateLiving, pinkFlamingos, femaleTrouble, edith,];
+// console.log(currentObject.length);
 
 // connect to corasponding div
 let StartElement = document.getElementById("start");
@@ -126,6 +127,10 @@ let wordElement = document.getElementById("current-word");
 let guessLeftElement = document.getElementById("guesses-left");
 let letterGuessedElement = document.getElementById("letters-guessed");
 let FailureElement = document.getElementById("failures");
+let imgElement = document.getElementById("game-img");
+let guessWordElement = document.getElementById("guess-word-type");
+let hintElement = document.getElementById("hint-button");
+let hardModeElement = document.getElementById("hard-mode");
 
 let gameStart = false;
 let chosenObject;
@@ -141,11 +146,18 @@ let numWins = 0;
 let numLosses =0;
 let guessCount = 0; 
 let correctGuesses;
+StartElement.textContent = ("Hit any key to start.");
 FailureElement.textContent = numLosses;
+let hintpara;
+
+
+
 
 // choose random object
 function initialize(){
     gameStart = true;
+    StartElement.textContent = ("");
+    guessWordElement.textContent = ("Think you got what it takes to guess this word!?");
     lettersGuessed = [];
     correctGuesses = 0;
     chosenObject = currentObject [Math.floor(Math.random() * currentObject. length)];
@@ -160,13 +172,26 @@ function initialize(){
     // console.log(wordAsDashes);
     currentWordArr = lowerWord.split('');
     // console.log(currentWordArr);
-    guessesLeft = 12;
+    guessesLeft = Math.floor(12 - (currentWord.length / 4));
     dashesArray = wordAsDashes.split('');
     wordElement.textContent = wordAsDashes;
     letterGuessedElement.textContent = "--";
     guessLeftElement.textContent = guessesLeft;
+    hintElement.onclick = function(){
+        hintpara = document.createElement("<p>");
+        hintpara.textContent = (chosenObject.title);
+        hintElement.appendChild = hintpara;
 
-}
+
+    }
+    hintpara.textContent = ("")
+    
+};
+
+
+
+
+
 
 
 function makeIntoDashes(word) {
@@ -206,7 +231,7 @@ function playGame (letter) {
                 letterGuessedElement.textContent = lettersGuessed;
                 if(guessesLeft === 0){
                     alert("Failure is an art form and you're well on you way to mastering it.");
-                    alert (`The answer you where lookin for was ${currentWord} .`)
+                    alert (`I believe the answer you where looking for was ${currentWord} .`)
                     numLosses++;
                     FailureElement.textContent = numLosses;
                     initialize();
@@ -247,6 +272,7 @@ function displayLetter(letter) {
         if (dashesArray.indexOf("_") === -1){
             numWins++;
             winElement.textContent = (numWins);
+            imgElement.src = chosenObject.objectImage;
             alert("You really know your smut! You perve!")
             alert(`You where right the answer was ${currentWord}`);
             initialize();

@@ -1,11 +1,25 @@
-/* #current-word {
+body{
+    background-color: rgb(216, 164, 207);
+}
+#head-flex{
+    
+}
+
+
+#the-game{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: flex-start;
     
 
 }
+#top-flexbox{
 
-.text-input-area{
+}
+#mid-flexbox{
 
-} */
+}
+#bottum-flexbox{
+
+}
+

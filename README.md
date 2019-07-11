@@ -9,6 +9,10 @@ I just figured out how to add a space to my dashes! very proud of this one!
 
 It's almost working! this is so exciting!
 
+I want to include Devine singing walk like a man https://www.youtube.com/watch?v=pFiqO0Qpa_g
+
+<iframe width="1280" height="532" src="https://www.youtube.com/embed/jlNnzoOiFq8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 supposed to build dashes.
 // let dashes = [];
