@@ -10,7 +10,7 @@ let devine = {
         "filler", "filler", "full",
     ],
     objectImage: "assets/images/devine.jpg",
-    sound: "filler",
+    sound: "assets/sounds/Devine-Dawn Davenport - Cha Cha Heels for Christmas.MP3",
 };
 let polyester = {
     title: "Polyester",
@@ -20,7 +20,7 @@ let polyester = {
         "filler", "filler", "full",
     ],
     objectImage: "assets/images/polyester.jpg",
-    sound: "filler",
+    sound: "assets/sounds/polyester.mp3",
 };
 let pinkFlamingos = {
     title: "Pink Flamingos",
@@ -30,7 +30,7 @@ let pinkFlamingos = {
         "filler", "filler", "full",
     ],
     objectImage: "assets/images/pink.jpg",
-    sound: "filler",
+    sound: "assets/sounds/Mondo Trasho.MP3",
 };
 let mary = {
     title: "Mary Vivian Pearce",
@@ -40,7 +40,7 @@ let mary = {
         "filler", "filler", "full",
     ],
     objectImage: "assets/images/Mary.jpg",
-    sound: "filler",
+    sound: "assets/sounds/Mondo Trasho.MP3",
 };
 let cookie = {
     title: "Cookie Mueller",
@@ -50,7 +50,7 @@ let cookie = {
         "filler", "filler", "full",
     ],
     objectImage: "assets/images/cookie.jpg",
-    sound: "filler",
+    sound: "assets/sounds/Mondo Trasho.MP3",
 };
 let susan = {
     title: "Susan Walsh",
@@ -60,7 +60,7 @@ let susan = {
         "filler", "filler", "full",
     ],
     objectImage:"assets/images/Susan.jpg" ,
-    sound: "filler",
+    sound: "assets/sounds/Mondo Trasho.MP3",
 };
 let david = {
     title: "David Lochary",
@@ -70,7 +70,7 @@ let david = {
         "filler", "filler", "full",
     ],
     objectImage: "assets/images/david.jpg",
-    sound: "filler",
+    sound: "assets/sounds/david.MP3",
 };
 let minkStole = {
     title: "Mink Stole",
@@ -80,7 +80,7 @@ let minkStole = {
         "filler", "filler", "full",
     ],
     objectImage: "assets/images/mink.gif",
-    sound: "filler",
+    sound: "assets/sounds/mink-stole-as-Connie-Marble.MP3",
 };
 
 let desperateLiving = {
@@ -91,7 +91,7 @@ let desperateLiving = {
         "filler", "filler", "full",
     ],
     objectImage: "assets/images/desperate.jpg",
-    sound: "filler",
+    sound: "assets/sounds/Mondo Trasho.MP3",
 };
 
 let femaleTrouble = {
@@ -102,7 +102,7 @@ let femaleTrouble = {
         "filler", "filler", "full",
     ],
     objectImage: "assets/images/femaletrouble.jpg",
-    sound: "filler",
+    sound: "assets/sounds/femaletrouble.mp3",
 };
 let edith = {
     title:"Edith Massey",
@@ -112,13 +112,14 @@ let edith = {
         "filler", "filler", "full",
     ],
     objectImage: "assets/images/edith.jpg",
-    sound: "filler",
+    sound: "assets/sounds/edith-as-Aunt-Ida.MP3",
 };
 // alert(devine.title)
 
 // list of objects
 let currentObject = [devine, cookie, susan, david, mary, polyester, minkStole, desperateLiving, pinkFlamingos, femaleTrouble, edith,];
 // console.log(currentObject.length);
+
 
 // connect to corasponding div
 let StartElement = document.getElementById("start");
@@ -129,12 +130,16 @@ let letterGuessedElement = document.getElementById("letters-guessed");
 let FailureElement = document.getElementById("failures");
 let imgElement = document.getElementById("game-img");
 let guessWordElement = document.getElementById("guess-word-type");
-let hintElement = document.getElementById("hint-button");
 let hardModeElement = document.getElementById("hard-mode");
+var musicElement = document.getElementById("music"); 
+
+
+
 
 let gameStart = false;
 let chosenObject;
 let currentWord;
+let wordsUsed = [];
 let wordArray = [];
 let lowerWord;
 let currentWordArr = [];
@@ -148,22 +153,35 @@ let guessCount = 0;
 let correctGuesses;
 StartElement.textContent = ("Hit any key to start.");
 FailureElement.textContent = numLosses;
-let hintpara;
+
+// let hintElement = document.getElementById("hint-button");
+// let hintText = documnet.getElementById("add-hint");
+// hintElement.addEventListener('click', updateButton)
+// function updateButton(){
+        
+        // hintText.textContent = chosenObject.title;
 
 
-
+//     };
 
 // choose random object
 function initialize(){
     gameStart = true;
+    musicElement.play();
     StartElement.textContent = ("");
-    guessWordElement.textContent = ("Think you got what it takes to guess this word!?");
+    guessWordElement.textContent = ("Think you got what it takes, to be the filthiest person alive? Guess the word!?");
+    
     lettersGuessed = [];
     correctGuesses = 0;
+    
+
     chosenObject = currentObject [Math.floor(Math.random() * currentObject. length)];
     console.log(chosenObject);
     currentWord = chosenObject.title;       // choose title from chosen object = current word.
     // console.log(currentWord);
+    if(wordsUsed.indexOf(currentWord) > -1){
+        initialize();
+    }
     wordArray = currentWord.split('');
     // console.log(wordArray);
     lowerWord = currentWord.toLowerCase();
@@ -172,24 +190,16 @@ function initialize(){
     // console.log(wordAsDashes);
     currentWordArr = lowerWord.split('');
     // console.log(currentWordArr);
-    guessesLeft = Math.floor(12 - (currentWord.length / 4));
+    guessesLeft = 12;
     dashesArray = wordAsDashes.split('');
     wordElement.textContent = wordAsDashes;
     letterGuessedElement.textContent = "--";
     guessLeftElement.textContent = guessesLeft;
-    hintElement.onclick = function(){
-        hintpara = document.createElement("<p>");
-        hintpara.textContent = (chosenObject.title);
-        hintElement.appendChild = hintpara;
-
-
+    if(numWins === currentObject.length){
+        guessWordElement.textContent = ("Would you look at you self so proud and sweaty! You won the damn game! Hope it doesn't go to your head! ")
     }
-    hintpara.textContent = ("")
-    
-};
 
-
-
+}
 
 
 
@@ -272,7 +282,9 @@ function displayLetter(letter) {
         if (dashesArray.indexOf("_") === -1){
             numWins++;
             winElement.textContent = (numWins);
+            wordsUsed.push(currentWord);
             imgElement.src = chosenObject.objectImage;
+            musicElement.src = chosenObject.sound;
             alert("You really know your smut! You perve!")
             alert(`You where right the answer was ${currentWord}`);
             initialize();

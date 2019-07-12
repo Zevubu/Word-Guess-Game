@@ -17,6 +17,22 @@
             <h2>John Waters Addition</h2>
             <p>The filthiest game alive!</p>
             <h8>18 and over!</h8>
+            <audio id="music">
+                    <source src="assets/sounds/Johnwaters.mp3" type="audio/mpeg">
+            </audio>
+            <p>Push the buttons to here what they have to say, or to get them to shut the hell up!</p>
+
+            <button id="play" onclick="playAudio()" type="button">Play Audio</button>
+            <button id="pause" onclick="pauseAudio()" type="button">Pause Audio</button> 
+            <script>
+                    var x = document.getElementById("music");  
+                    function playAudio() { 
+                      x.play(); 
+                    }  
+                    function pauseAudio() { 
+                      x.pause(); 
+                    } 
+            </script>
         </section>
         <br>
     </header>
@@ -57,16 +73,16 @@
                 <p id="failures"></p>
             </article>        
         </section id="button flex">
-        <section>
-            
-            
+        <!-- <section>
             <section>
             <button id="hard-mode">Harder Darling!</button>
             </section>
             <br>
-            <section id="hint-button">
-            </section>
-        </section>
+            <form>
+                <input type="button" id="hint-button" value="Hint">
+            </form>
+            <p id="add-hint"></p>
+        </section> -->
     </section>
    
     <footer>
