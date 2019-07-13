@@ -6,64 +6,60 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="assets/css/resets.css">
-
-
+    <link href="https://fonts.googleapis.com/css?family=Monoton|Notable|Pacifico|Special+Elite|Yantramanav&display=swap" rel="stylesheet">
     <title>The Filthies word game ever!</title>
 </head>
 <body>
     <header>
         <section id="head-flex">
-            <h1>HANGMAN</h1>
-            <h2>John Waters Addition</h2>
-            <p>The filthiest game alive!</p>
-            <h8>18 and over!</h8>
-            <audio id="music">
-                    <source src="assets/sounds/Johnwaters.mp3" type="audio/mpeg">
-            </audio>
-            <p>Push the buttons to here what they have to say, or to get them to shut the hell up!</p>
-
-            <button id="play" onclick="playAudio()" type="button">Play Audio</button>
-            <button id="pause" onclick="pauseAudio()" type="button">Pause Audio</button> 
-            <script>
-                    var x = document.getElementById("music");  
-                    function playAudio() { 
-                      x.play(); 
-                    }  
-                    function pauseAudio() { 
-                      x.pause(); 
-                    } 
-            </script>
+            <section id="header content">
+                <section id="hg">
+                    <p >HANGMAN</p>
+                    
+                </section>
+                <section id="jw-name">
+                        <p>John Waters Dreamland </p>
+                        <p>Edition!</p>
+                </section>
+                <section id="flex-head-text">
+                    <section id="filth-text">
+                        <p >The filthiest game alive!</p>
+                    </section>
+                </section>
+                <section id="x-rated">
+                    <p >This game has been rated (X) for lude language, and bad taste!</p>
+                </section>     
+            </section>
         </section>
         <br>
     </header>
-
-
     <section id="the-game">
-        
         <section id="top-flexbox">
-            <article>
+            <article id="geuss-start-text">
                 <p id="start"></p>
                 <h3 id="guess-word-type"></h3>
                 <p id="current-word"></p>
             </article>
-            <br>
-            <article>
-                <div >
-                    <img id="game-img" src="assets/images/john_waters.jpg" alt="Slide show" width="300px" >
-                </div>
-            </article>
+            <hr>
         </section>
         <section id="mid-flexbox">
-            <article>
-                <h3>Guesses Left:</h3>
-                <p id="guesses-left"></p>
+            <article id="img-style">
+                    <div >
+                        <img id="game-img" src="assets/images/john_waters.jpg" alt="Slide show" >
+                    </div>
             </article>
-            <article>
-                <h3>You've already tried:</h3>
-                <p id="letters-guessed"></p>
-            </article>
-        </section> 
-        <section id="buttom-flex">
+            <section id="guess-info">
+                <article>
+                    <h3>Guesses Left:</h3>
+                    <p id="guesses-left"></p>
+                </article>
+                <article>
+                    <h3>You've already tried:</h3>
+                    <p id="letters-guessed"></p>
+                </article>
+            </section> 
+        </section>
+        <section id="bottum-flex">
             <article>
                 <h3>Score:</h1>
                 <p id="wins"></p>
@@ -85,8 +81,31 @@
         </section> -->
     </section>
    
-    <footer>
-
+    <footer id="foot-flex">
+        <section id="audio-flex">
+            <audio id="music">
+                    <source src="assets/sounds/Johnwaters.mp3" type="audio/mpeg">
+            </audio>
+            <p>Hear what they have to say, or to get them to shut the hell up!</p>
+            <section id="audio-btn-flex">
+                <button id="play" onclick="playAudio()" type="button">Play</button>
+                <button id="pause" onclick="pauseAudio()" type="button">Pause</button> 
+            </section>
+            <script>
+                var x = document.getElementById("music");  
+                function playAudio() { 
+                    x.play(); 
+                }  
+                function pauseAudio() { 
+                    x.pause(); 
+                } 
+            </script>
+        </section>
+        <section id="about-flex">
+            <p>This website was made by Zev Hoffman.</p> 
+            <p>It is a fanpage!</p>
+        </section>
+         
     </footer>
     
      

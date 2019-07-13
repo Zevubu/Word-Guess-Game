@@ -1,25 +1,151 @@
 body{
-    background-color: rgb(216, 164, 207);
+    background-color: rgb(246, 242, 236);
+    
+}
+header{
+    background-color: #7fbfbf;
+    height: 40%;
+    margin-top: 0px;
+    text-align: center;
+    
 }
 #head-flex{
+display: flex;
+flex-direction: column;
+justify-content: space-around;
+
     
 }
 
+#flex-head-text{
+    display: flex;
+    flex-direction: row;
+    justify-content: center
+}
+#hg{
+    color: #ff4976;
+    font-family: 'Pacifico', cursive;
+    font-size: 500%;
+    
+}
+#jw-name{
+    font-family: 'Yantramanav', sans-serif;
+    font-size: 150%;
+    transform: rotate(-25deg);
+    margin-right: 50%;
+    margin-bottom: 12px;
+    
+
+}
+#filth-text{
+    font-family: 'Notable', sans-serif;
+    font-size: 150%;
+    margin-bottom: 12px;
+
+}
+#x-rated{
+    font-family: 'Special Elite', cursive;
+}
 
 #the-game{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    background-color: rgb(216, 164, 207);
+    width:56%;
+    margin: 20px auto;
+    border: 2px;
+    border-color: black;
+    border-style: solid;  
+    font-family: 'Yantramanav', sans-serif;
+    font-size: 18px;
+}
+
+#top-flexbox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+#geuss-start-text{
+    text-align: center;  
+}
+
+#mid-flexbox{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+}
+#game-img{
+    width: 300px;
+    border: black 2px solid;
+
+    
+}
+#bottum-flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding-bottom: 20px;
+
+}
+
+footer{
+    position: fixed;
+    width: 100%;
+    height: 100px;
+    bottom: 0;
+    
+}
+#foot-flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: fixed;
+    width: 100%;
+    height: 55px;
+    bottom: 0;
+    padding:12px;
+    margin-top: 12px;
+    border-top: 2px;
+    border-top-style: solid;
+    border-color: black;
+    background-color: #7fbfbf;  
+
+}
+#audio-flex{
+    font-family: 'Yantramanav', sans-serif;
+    font-size: 18px;
+    margin-top: 0%;
+
+}
+#audio-btn-flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+   
+}
+#play{
+    font-family: 'Yantramanav', sans-serif;
+    font-size: 18px;
+    margin-right: 15%;
     
 
 }
-#top-flexbox{
+#pause{
+    font-family: 'Yantramanav', sans-serif;
+    font-size: 18px;
 
 }
-#mid-flexbox{
-
-}
-#bottum-flexbox{
-
+#about-flex{
+    margin-top: 0%;
+    margin-left:50%;
+    text-align: center;
+    line-height: 100%;
+    font-family: 'Yantramanav', sans-serif;
+    font-size: 18px;
 }
 
