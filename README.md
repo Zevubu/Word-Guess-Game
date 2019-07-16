@@ -1,5 +1,6 @@
 # Word-Guess-Game
 The filthiest game alive! A John Waters themed word guessing game.
+after you finish a guess check console log for more info in person or film.
 
 Well that was quite an adventure I started by writing it out. and making specific areas for each function I had in mind. I got seriously stuck multiple times but I've done it. I would go into more detail but I'm running short on time. I made it mobile responsive for the most part. 
 a few notes I attempted to check the console for more info on individual. I intended to make hint and hard mode buttons but I was struggling to put them in my code without making it crash. I was able to do it with the play and pause buttons. so I would like to go back and give it another shot later.
